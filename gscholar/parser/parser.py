@@ -37,9 +37,10 @@ class Parser:
                         else:
                             current_artifact[property_name] = None
                     case Attributes.LINK:
-                        current_artifact[property_name] = item.find(".//a").attrib[
-                            "href"
-                        ]
+                        href = item.find(".//a").attrib["href"]
+                        if href == 'javascript:void(0)':
+                            href = None
+                        current_artifact[property_name] = href
 
             artifacts.append(current_artifact)
 

@@ -1,0 +1,3 @@
+Use nix to load necessary dependencies (https://nixos.org/download).
+
+Alternatively, make sure that you have python3.11 and the lxml python package installed (i.e. via distro package manager, pip, virtualenv, whatever).

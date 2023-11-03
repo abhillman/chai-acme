@@ -28,7 +28,8 @@ class GScholar:
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
     }
 
-    def _fetch_page(self, uri, headers=BASE_HEADERS):
+    @staticmethod
+    def _fetch_page(uri, headers=BASE_HEADERS):
         log.info(f"{uri}")
         log.debug(f"{headers}")
 

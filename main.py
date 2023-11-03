@@ -1,7 +1,11 @@
-from gscholar import gscholarquery
+import sys
+import gscholar
+from gscholar import GScholar
+from gscholar.query import Simple as GScholarSimpleQuery
+import json
 
 if __name__ == "__main__":
-    query = GScholarQuerySimple(sys.argv[0])
-    client = GScholar(query)
-    results = client.results()
+    gs_query = GScholarSimpleQuery(sys.argv[1])
+    gs = GScholar(gs_query)
+    results = gs.results()
     print(json.dumps(results, indent=2))

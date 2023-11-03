@@ -46,7 +46,8 @@ class GScholar:
         KIND = enum.auto()
         LINK = enum.auto()
 
-    def _parse_results(self, html):
+    @staticmethod
+    def _parse_results(html):
         parser = lxml.etree.HTMLParser()
         etree = lxml.etree.fromstring(html, parser=parser)
 

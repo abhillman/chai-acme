@@ -1,3 +1,4 @@
-Use nix to load necessary dependencies (https://nixos.org/download).
+Install nix (https://nixos.org/download) then run `./python311 gscholar.py <query-text>`
 
-Alternatively, make sure that you have python3.11 and the lxml python package installed (i.e. via distro package manager, pip, virtualenv, whatever).
+Alternatively, make sure that you have python3.11 and the lxml python package installed (i.e. via distro package
+manager [i.e. apt], pip, poetry, ..., or virtualenv.).

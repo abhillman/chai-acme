@@ -5,7 +5,10 @@ import lxml.etree
 import urllib.parse
 import urllib.request
 
+from . import logging
 from .query.abstract import Abstract
+
+log = logging.make_logger()
 
 class GScholar:
     def __init__(self, query: type[Abstract]) -> None:
@@ -26,6 +29,9 @@ class GScholar:
     }
 
     def _fetch_page(self, uri, headers=BASE_HEADERS):
+        log.info(f"{uri}")
+        log.debug(f"{headers}")
+
         request = urllib.request.Request(uri, headers=headers)
 
         gzip_bytes = None

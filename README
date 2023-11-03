@@ -1,5 +1,5 @@
-Install nix (https://nixos.org/download) then run `./python311 gscholar.py <query-text>`
+Install nix (https://nixos.org/download) and enter the virtual environment with a bash shell using `SHELL_ONLY=t ./python311`.
 
-In order to enter the virtual environment with a bash shell, run `SHELL_ONLY=t ./python311`
-
-For running tests, make sure you are in the virtual environment, then run `./tools/test`
+From within the virtual environment:
+* run the demo with `python3 -m main '<search-term>'`
+* run tests with `./tools/test`

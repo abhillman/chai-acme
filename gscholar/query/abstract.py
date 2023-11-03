@@ -19,14 +19,12 @@ class Abstract(ABC):
         pass
 
     def as_uri(self, endpoint=DEFAULT_ENDPOINT, additional_params={}):
-        params = {
+        encoded_params = urllib.parse.urlencode({
             **self._query_parameters(),
             **Abstract.COMMON_PARAMS,
             **additional_params,
-        }
-        encoded_params = urllib.parse.urlencode(
-            params, quote_via=urllib.parse.quote_plus
-        )
+        }, quote_via=urllib.parse.quote_plus)
+
         return "".join(
             [
                 Abstract.BASE_URI,

@@ -6,6 +6,7 @@ import urllib.parse
 import urllib.request
 
 from . import logging
+from .query import Simple
 from .query.abstract import Abstract
 
 log = logging.make_logger()
@@ -88,3 +89,21 @@ class GScholar:
         uri = self.query.as_uri()
         html = self._fetch_page(uri)
         return self._parse_results(html)
+
+    @staticmethod
+    def simple_query(query_text):
+        simple_query = Simple(query_text)
+        return GScholarWrapped(simple_query)
+
+class GScholarWrapped(GScholar):
+    """
+    Allows for `with` keyword to be used, but only on a fresh instance of `GScholar`
+    """
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        # We don't deal with args, which tell of an exception;
+        # thus we return `False` which will instruct python to
+        # raise an exception for us, had one occurred.
+        return False

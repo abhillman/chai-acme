@@ -19,7 +19,7 @@ set -euo pipefail
 # in C by traversing argv, which is an array of strings. When working with `$@` in bash (the equivalent of `ARGV`),
 # it is easier to just delegate to system python than to work with `ARGV` as an array, as arrays are finicky in bash.
 CLEAN_ARGS_SCRIPT="import sys; print(' '.join(sys.argv[1:]).replace('Application Support', 'Application\\ Support'))"
-CLEAN_ARGS="$(python3 -c "${CLEAN_ARGS_SCRIPT}" "${@}")"
+CLEAN_ARGS="$(python3 -c "${CLEAN_ARGS_SCRIPT}" "${@:-}")"
 
 # Fire up the nix shell
 nix-shell \

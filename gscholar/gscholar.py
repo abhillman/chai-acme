@@ -6,6 +6,7 @@ from .query.abstract import Abstract
 
 log = logging.make_logger()
 
+
 class GScholar:
     def __init__(self, query: type[Abstract]) -> None:
         self.query = query
@@ -19,10 +20,12 @@ class GScholar:
         simple_query = Simple(query_text)
         return GScholarWrapped(simple_query)
 
+
 class GScholarWrapped(GScholar):
     """
     Allows for `with` keyword to be used, but only on a fresh instance of `GScholar`
     """
+
     def __enter__(self):
         return self
 

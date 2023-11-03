@@ -7,6 +7,7 @@ from gscholar.query.abstract import Abstract
 
 log = logging.make_logger()
 
+
 class Backend:
     """
     This is a backend of type `GScholar`.  This abstraction is helpful as it enables
@@ -15,6 +16,7 @@ class Backend:
     going through the entire flow of fetching results over the network and also printing
     them, which is especially useful for auditing output and testing.
     """
+
     def __init__(self) -> None:
         pass
 
@@ -54,5 +56,6 @@ class Backend:
         # TODO(@abhillman): look into using async
         uri = query.as_uri()
         return Backend._fetch_page(uri)
+
 
 # TODO(@abhillman): lot of thoughts here regarding python and "pure" types

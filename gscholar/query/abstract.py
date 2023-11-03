@@ -24,7 +24,6 @@ class Abstract(ABC):
             **Abstract.COMMON_PARAMS,
             **additional_params,
         }, quote_via=urllib.parse.quote_plus)
-
         return "".join(
             [
                 Abstract.BASE_URI,

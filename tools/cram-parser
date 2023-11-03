@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Runs cram tests for the parser
+
+# Ensure this script is run from the repository root
+cd "$(git rev-parse --show-toplevel)" || exit
+
+HTML_PATH="$(pwd)/gscholar/parser/tests/" ./tools/cram gscholar/parser/tests

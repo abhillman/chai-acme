@@ -1,1 +1,6 @@
+# Ignore python bytecode
 *.pyc
+__pycache__
+
+# Ignore cramtest error files
+*.t.err

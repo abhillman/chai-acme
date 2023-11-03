@@ -26,15 +26,18 @@ CLEAN_ARGS="$(python3 -c "${CLEAN_ARGS_SCRIPT}" "${@:-}")"
 
 # List of nixpkgs to be loaded; find more at https://search.nixos.org
 NIXPKGS=(
+    'jq'
     'python311'
     'python311Packages.lxml'
     'python311Packages.pip'
     'python311Packages.setuptools'
+    'python311Packages.cram'
 )
 
 # Fire up the nix shell
 if [[ "${SHELL_ONLY:-}" != "" ]]; then
   # If SHELL_ONLY=t is passed, then enter nix shell directly, which launches bash
+  >&2 echo "Note!: SHELL_ONLY=${SHELL_ONLY}. Provided arguments will be ignored."
   nix-shell --packages "${NIXPKGS[@]}"
 else
   # If SHELL_ONLY is unset, which is the default when run by IntelliJ, launch python311 with args to wrapper

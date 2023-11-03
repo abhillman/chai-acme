@@ -18,7 +18,7 @@ class Abstract(ABC):
     def _query_parameters(self):
         pass
 
-    def as_uri(self, endpoint="/scholar", additional_params={}):
+    def as_uri(self, endpoint=DEFAULT_ENDPOINT, additional_params={}):
         params = {
             **self._query_parameters(),
             **Abstract.COMMON_PARAMS,
@@ -31,7 +31,7 @@ class Abstract(ABC):
             [
                 Abstract.BASE_URI,
                 "/",
-                Abstract.DEFAULT_ENDPOINT,
+                endpoint,
                 "?",
                 encoded_params,
             ]
